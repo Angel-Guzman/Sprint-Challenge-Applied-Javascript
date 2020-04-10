@@ -18,19 +18,6 @@
 // </div>
 //
 // Use your function to create a card for each of the articles and add the card to the DOM.
-// function axiosFunction(articles) {
-//     const url = `https://lambda-times-backend.herokuapp.com/${articles}`
-//     axios.get(url)
-//     .then(response =>{
-//         console.log(response.data)
-//         cardsContainer.appendChild(cardCreator(response.data))
-//     })
-//     .catch(err => {
-//         console.log(err)
-//     })
-
-// }
-// axiosFunction('articles')
 
 const cardsContainer = document.querySelector('.cards-container')
 
@@ -72,29 +59,31 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
             const newCards = cardCreator(item)
             cardsContainer.appendChild(newCards)
         })
+        const Articles1 = response.data.articles.bootstrap
+        console.log(Articles1)
+        Articles1.forEach(item => {
+            const newCards = cardCreator(item)
+            cardsContainer.appendChild(newCards)
+        })
+        const Articles2 = response.data.articles.technology
+        console.log(Articles2)
+        Articles2.forEach(item => {
+            const newCards = cardCreator(item)
+            cardsContainer.appendChild(newCards)
+        })
+        const Articles3 = response.data.articles.jquery
+        console.log(Articles3)
+        Articles3.forEach(item => {
+            const newCards = cardCreator(item)
+            cardsContainer.appendChild(newCards)
+        })
+        const Articles4 = response.data.articles.node
+        console.log(Articles4)
+        Articles4.forEach(item => {
+            const newCards = cardCreator(item)
+            cardsContainer.appendChild(newCards)
+        })
     })
     .catch(err => {
         console.log(err)
     })
-
-// function tabCreator() {
-//     const tabDiv = document.createElement('div')
-//     tabDiv.classList.add('tab')
-//     topicsDiv.appendChild(tabDiv)
-
-//     return tabDiv
-// }
-
-// axios.get('https://lambda-times-backend.herokuapp.com/topics')
-//     .then(response => {
-//         // console.log(response.data)
-//         const topicsData = response.data.topics
-//         topicsData.forEach(element => {
-//             const newTabs = tabCreator(element)
-//             newTabs.textContent = element
-//             topicsDiv.appendChild(newTabs)
-//         });
-//     })
-//     .catch(err => {
-//         console.log(err)
-//     })
