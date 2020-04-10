@@ -21,7 +21,6 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
     .then(response => {
         // console.log(response.data)
         const topicsData = response.data.topics
-        console.log(topicsData)
         topicsData.forEach(element => {
             const newTabs = tabCreator(element)
             newTabs.textContent = element

@@ -33,7 +33,8 @@
 // axiosFunction('articles')
 
 const cardsContainer = document.querySelector('.cards-container')
-function cardCreator() {
+
+function cardCreator(articlesData) {
     // create
     cardDiv = document.createElement('div')
     headlineDiv = document.createElement('div')
@@ -54,27 +55,45 @@ function cardCreator() {
     headlineDiv.classList.add('headline')
     authorDiv.classList.add('author')
     imgDiv.classList.add('img-container')
-    
 
+    //set text and src
+    headlineDiv.textContent = `${articlesData.headline}`
+    spanElement.textContent = `${articlesData.authorName}`
+    imgElement.src = `${articlesData.authorPhoto}`
 
     return cardDiv
-}   
+}
 
-// axios.get('https://lambda-times-backend.herokuapp.com/articles')
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+    .then(response => {
+        const Articles = response.data.articles.javascript
+        console.log(Articles)
+        Articles.forEach(item => {
+            const newCards = cardCreator(item)
+            cardsContainer.appendChild(newCards)
+        })
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+// function tabCreator() {
+//     const tabDiv = document.createElement('div')
+//     tabDiv.classList.add('tab')
+//     topicsDiv.appendChild(tabDiv)
+
+//     return tabDiv
+// }
+
+// axios.get('https://lambda-times-backend.herokuapp.com/topics')
 //     .then(response => {
-//         const Articles = response.data
-//         console.log(Articles)
-//         Articles.map(item => {
-//             return cardCreator(item)
-//         })
-//         Articles.forEach(item => {
-//             cardsContainer.appendChild(item)
-//         })
-        
-//         // response.data.forEach(item => {
-//         //     const newCards = cardCreator(item)
-//         //     cardsContainer.appendChild(newCards)
-//         // })
+//         // console.log(response.data)
+//         const topicsData = response.data.topics
+//         topicsData.forEach(element => {
+//             const newTabs = tabCreator(element)
+//             newTabs.textContent = element
+//             topicsDiv.appendChild(newTabs)
+//         });
 //     })
 //     .catch(err => {
 //         console.log(err)
