@@ -17,3 +17,44 @@
     <div class="right-button"> > </div>
   </div>
 */
+const carouselContainer = document.querySelector('.carousel-container')
+
+function createCarousel() {
+  // create elements
+  carouselDiv = document.createElement('div')
+  leftBtnDiv = document.createElement('div')
+  mountainImg = document.createElement('img')
+  computerImg = document.createElement('img')
+  treesImg = document.createElement('img')
+  turntableImg = document.createElement('img')
+  rightBtnDiv = document.createElement('div')
+  
+  // structure
+  carouselDiv.appendChild(leftBtnDiv)
+  carouselDiv.appendChild(mountainImg)
+  carouselDiv.appendChild(computerImg)
+  carouselDiv.appendChild(treesImg)
+  carouselDiv.appendChild(turntableImg)
+  carouselDiv.appendChild(rightBtnDiv)
+
+  // classes
+  carouselDiv.classList.add('carousel')
+  leftBtnDiv.classList.add('left-button')
+  rightBtnDiv.classList.add('right-button')
+
+  // text content, and srcs
+  leftBtnDiv.textContent = '<'
+  // mountainImg.setAttribute('src', "./assets/carousel/mountains.jpeg")
+  mountainImg.src = "./assets/carousel/mountains.jpeg"
+  computerImg.src = "./assets/carousel/computer.jpeg"
+  treesImg.src = "./assets/carousel/trees.jpeg"
+  turntableImg.src = "./assets/carousel/turntable.jpeg"
+  rightBtnDiv.textContent = '>'
+  mountainImg.style.height = 'auto'
+  mountainImg.style.width = '100%'
+
+  return carouselDiv
+}
+
+const testCarousel = createCarousel()
+carouselContainer.appendChild(testCarousel)

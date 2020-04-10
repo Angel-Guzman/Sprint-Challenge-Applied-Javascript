@@ -54,31 +54,31 @@ function cardCreator(articlesData) {
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then(response => {
         const Articles = response.data.articles.javascript
-        console.log(Articles)
+        // console.log(Articles)
         Articles.forEach(item => {
             const newCards = cardCreator(item)
             cardsContainer.appendChild(newCards)
         })
         const Articles1 = response.data.articles.bootstrap
-        console.log(Articles1)
+        // console.log(Articles1)
         Articles1.forEach(item => {
             const newCards = cardCreator(item)
             cardsContainer.appendChild(newCards)
         })
         const Articles2 = response.data.articles.technology
-        console.log(Articles2)
+        // console.log(Articles2)
         Articles2.forEach(item => {
             const newCards = cardCreator(item)
             cardsContainer.appendChild(newCards)
         })
         const Articles3 = response.data.articles.jquery
-        console.log(Articles3)
+        // console.log(Articles3)
         Articles3.forEach(item => {
             const newCards = cardCreator(item)
             cardsContainer.appendChild(newCards)
         })
         const Articles4 = response.data.articles.node
-        console.log(Articles4)
+        // console.log(Articles4)
         Articles4.forEach(item => {
             const newCards = cardCreator(item)
             cardsContainer.appendChild(newCards)
