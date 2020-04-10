@@ -18,3 +18,64 @@
 // </div>
 //
 // Use your function to create a card for each of the articles and add the card to the DOM.
+// function axiosFunction(articles) {
+//     const url = `https://lambda-times-backend.herokuapp.com/${articles}`
+//     axios.get(url)
+//     .then(response =>{
+//         console.log(response.data)
+//         cardsContainer.appendChild(cardCreator(response.data))
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
+
+// }
+// axiosFunction('articles')
+
+const cardsContainer = document.querySelector('.cards-container')
+function cardCreator() {
+    // create
+    cardDiv = document.createElement('div')
+    headlineDiv = document.createElement('div')
+    authorDiv = document.createElement('div')
+    imgDiv = document.createElement('div')
+    imgElement = document.createElement('img')
+    spanElement = document.createElement('span')
+
+    // structure
+    cardDiv.appendChild(headlineDiv)
+    cardDiv.appendChild(authorDiv)
+    authorDiv.appendChild(imgDiv)
+    imgDiv.appendChild(imgElement)
+    authorDiv.appendChild(spanElement)
+
+    // add classes
+    cardDiv.classList.add('card')
+    headlineDiv.classList.add('headline')
+    authorDiv.classList.add('author')
+    imgDiv.classList.add('img-container')
+    
+
+
+    return cardDiv
+}   
+
+// axios.get('https://lambda-times-backend.herokuapp.com/articles')
+//     .then(response => {
+//         const Articles = response.data
+//         console.log(Articles)
+//         Articles.map(item => {
+//             return cardCreator(item)
+//         })
+//         Articles.forEach(item => {
+//             cardsContainer.appendChild(item)
+//         })
+        
+//         // response.data.forEach(item => {
+//         //     const newCards = cardCreator(item)
+//         //     cardsContainer.appendChild(newCards)
+//         // })
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
